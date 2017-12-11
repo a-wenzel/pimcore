@@ -1,5 +1,11 @@
 # Upgrade Notes for Upgrades within Pimcore 5
 
+## Pimcore 5.1
+
+* The default priority of bundles enabled via extension manager was changed from `0` to `10` to make sure
+  those bundles are loaded before the `AppBundle` is loaded. Please make sure this works for your application
+  and set a manual priority otherwise. See https://github.com/pimcore/pimcore/pull/2328 for details.
+
 ## Build 149 (2017-11-14)
 
 The Piwik integration which was recently added was refactored to always use a full URI including the protocol for the Piwik
