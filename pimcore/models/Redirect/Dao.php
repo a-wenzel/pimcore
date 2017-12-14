@@ -36,6 +36,13 @@ class Dao extends Model\Dao\AbstractDao
         }
 
         $data = $this->db->fetchRow('SELECT * FROM redirects WHERE id = ?', $this->model->getId());
+
+        if ($data['id']) {
+            $this->assignVariablesToModel($data);
+        } else {
+            throw new \Exception(sprintf('Redirect with ID %d doesn\'t exist', $this->model->getId()));
+        }
+
         $this->assignVariablesToModel($data);
     }
 
